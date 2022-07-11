@@ -1,4 +1,4 @@
-﻿namespace SlipstreamEngine
+﻿namespace SlipstreamEngine.Menus
 {
     partial class Window
     {

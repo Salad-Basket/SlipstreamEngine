@@ -4,7 +4,7 @@ public class MainMenu
     public bool optionsMenu { get; private set; }
     public string gameName { get; private set; }
 
-    public MainMenu(string gameName, bool optionsMenu = false, bool centered = true)
+    public MainMenu(string gameName, bool optionsMenu = false)
     {
         this.optionsMenu = optionsMenu;
         this.gameName = gameName;
