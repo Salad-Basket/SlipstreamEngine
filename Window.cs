@@ -8,30 +8,38 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SlipstreamEngine
+namespace SlipstreamEngine;
+public partial class Window : Form
 {
-    public partial class Window : Form
+    public Window()
     {
-        public Window()
-        {
-            InitializeComponent();
-            this.Resize += resize;
-        }
-
-        public void Write(string str)
-        {
-            this.console.AppendText(str);
-            this.Refresh();
-        }
-
-        public void WriteLine(string str)
-        {
-            Write($"{str}\n");
-        }
-
-        private void resize(object sender, EventArgs e)
-        {
-            this.console.Size = this.Size;
-        }
+        InitializeComponent();
+        this.Resize += resize;
     }
-}
+
+    #region Writing
+    public void Write(string str)
+    {
+        this.console.AppendText(str);
+        this.Refresh();
+    }
+
+    public void WriteLine(string str)
+    {
+        Write($"{str}\n");
+    }
+    #endregion
+        
+    public void Clear() => this.console.Clear();
+    public void center()
+    {
+        // Selects all the text and aligns it to the center
+        this.console.SelectAll();
+        this.console.SelectionAlignment = HorizontalAlignment.Center;
+        this.console.DeselectAll();
+    }
+
+    // Called to make sure the text box fills the window at all times
+    private void resize(object sender, EventArgs e) => this.console.Size = this.Size;
+    }
+
