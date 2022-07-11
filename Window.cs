@@ -21,6 +21,7 @@ namespace SlipstreamEngine
         public void Write(string str)
         {
             this.console.AppendText(str);
+            this.Refresh();
         }
 
         public void WriteLine(string str)
