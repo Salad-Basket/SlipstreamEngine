@@ -31,4 +31,12 @@ public partial class Window : Form
 
     // Called to make sure the text box fills the window at all times
     private void resize(object sender, EventArgs e) => this.console.Size = this.Size;
+
+    private void Window_KeyPress(object sender, KeyPressEventArgs e)
+    {
+        if(e.KeyChar == 'a')
+        {
+            Write("a");
+        }
+    }
 }
