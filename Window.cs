@@ -1,37 +1,26 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SlipstreamEngine
 {
-    public class Window : Form
+    public partial class Window : Form
     {
-        Form form;
-        RichTextBox console;
-        
         public Window()
         {
-            form = new Form();
-            console = new RichTextBox();
-
-            this.Controls.Add(console);
-            this.Resize += Window_Resize;
-            Window_Load(console);
+            InitializeComponent();
+            this.Resize += resize;
         }
 
-        private void Window_Load(RichTextBox console)
+        private void resize(object sender, EventArgs e)
         {
-            console.Size = this.ClientSize;
-            console.Top = 0;
-            console.Left = 0;
-            console.BackColor = Color.Black;
-            console.ForeColor = Color.White;
-            console.WordWrap = false;
-            console.Font = new Font("Consolas", 12);
+            this.console.Size = this.Size;
         }
-
-        private void Window_Resize(object sender, EventArgs e)
-        {
-            console.Size = this.ClientSize;
-        }
-
     }
 }

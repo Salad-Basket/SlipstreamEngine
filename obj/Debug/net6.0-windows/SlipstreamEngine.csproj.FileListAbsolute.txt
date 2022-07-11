@@ -1,0 +1,14 @@
+C:\Users\sdlda\OneDrive\Documents\GitHub\SlipstreamEngine\SlipstreamEngine\bin\Debug\net6.0-windows\SlipstreamEngine.deps.json
+C:\Users\sdlda\OneDrive\Documents\GitHub\SlipstreamEngine\SlipstreamEngine\bin\Debug\net6.0-windows\SlipstreamEngine.dll
+C:\Users\sdlda\OneDrive\Documents\GitHub\SlipstreamEngine\SlipstreamEngine\bin\Debug\net6.0-windows\SlipstreamEngine.pdb
+C:\Users\sdlda\OneDrive\Documents\GitHub\SlipstreamEngine\SlipstreamEngine\obj\Debug\net6.0-windows\SlipstreamEngine.csproj.AssemblyReference.cache
+C:\Users\sdlda\OneDrive\Documents\GitHub\SlipstreamEngine\SlipstreamEngine\obj\Debug\net6.0-windows\SlipstreamEngine.Window.resources
+C:\Users\sdlda\OneDrive\Documents\GitHub\SlipstreamEngine\SlipstreamEngine\obj\Debug\net6.0-windows\SlipstreamEngine.csproj.GenerateResource.cache
+C:\Users\sdlda\OneDrive\Documents\GitHub\SlipstreamEngine\SlipstreamEngine\obj\Debug\net6.0-windows\SlipstreamEngine.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sdlda\OneDrive\Documents\GitHub\SlipstreamEngine\SlipstreamEngine\obj\Debug\net6.0-windows\SlipstreamEngine.AssemblyInfoInputs.cache
+C:\Users\sdlda\OneDrive\Documents\GitHub\SlipstreamEngine\SlipstreamEngine\obj\Debug\net6.0-windows\SlipstreamEngine.AssemblyInfo.cs
+C:\Users\sdlda\OneDrive\Documents\GitHub\SlipstreamEngine\SlipstreamEngine\obj\Debug\net6.0-windows\SlipstreamEngine.csproj.CoreCompileInputs.cache
+C:\Users\sdlda\OneDrive\Documents\GitHub\SlipstreamEngine\SlipstreamEngine\obj\Debug\net6.0-windows\SlipstreamEngine.dll
+C:\Users\sdlda\OneDrive\Documents\GitHub\SlipstreamEngine\SlipstreamEngine\obj\Debug\net6.0-windows\refint\SlipstreamEngine.dll
+C:\Users\sdlda\OneDrive\Documents\GitHub\SlipstreamEngine\SlipstreamEngine\obj\Debug\net6.0-windows\SlipstreamEngine.pdb
+C:\Users\sdlda\OneDrive\Documents\GitHub\SlipstreamEngine\SlipstreamEngine\obj\Debug\net6.0-windows\ref\SlipstreamEngine.dll
