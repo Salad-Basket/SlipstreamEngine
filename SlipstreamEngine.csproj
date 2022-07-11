@@ -5,6 +5,9 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <Copyright>GNU General Public License v3.0</Copyright>
+    <RepositoryUrl>https://github.com/SaladClimbing/SlipstreamEngine/</RepositoryUrl>
+    <Version>0.0.2</Version>
   </PropertyGroup>
 
 </Project>
