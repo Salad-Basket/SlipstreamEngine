@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace SlipstreamEngine;
+﻿namespace SlipstreamEngine;
 public partial class Window : Form
 {
     public Window()
@@ -41,5 +31,5 @@ public partial class Window : Form
 
     // Called to make sure the text box fills the window at all times
     private void resize(object sender, EventArgs e) => this.console.Size = this.Size;
-    }
+}
 
