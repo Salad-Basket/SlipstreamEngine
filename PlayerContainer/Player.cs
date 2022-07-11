@@ -9,4 +9,16 @@ public  class Player
         this.health = health;
         this.speed = speed;
     }
+
+    public bool damage(float damage)
+    {
+        this.health -= damage;
+        return true;
+    }
+
+    public bool deathCheck()
+    {
+        if(this.health <= 0f) return true;
+        return false;
+    }
 }
