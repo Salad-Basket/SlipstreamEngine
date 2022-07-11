@@ -39,6 +39,7 @@
             this.console.ForeColor = System.Drawing.Color.White;
             this.console.Location = new System.Drawing.Point(0, 0);
             this.console.Name = "console";
+            this.console.ReadOnly = true;
             this.console.Size = new System.Drawing.Size(800, 450);
             this.console.TabIndex = 0;
             this.console.Text = "";

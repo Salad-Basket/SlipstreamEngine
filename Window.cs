@@ -18,6 +18,16 @@ namespace SlipstreamEngine
             this.Resize += resize;
         }
 
+        public void Write(string str)
+        {
+            this.console.AppendText(str);
+        }
+
+        public void WriteLine(string str)
+        {
+            Write($"{str}\n");
+        }
+
         private void resize(object sender, EventArgs e)
         {
             this.console.Size = this.Size;

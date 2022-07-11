@@ -16,6 +16,16 @@ namespace SlipstreamEngine.Prompts
             this.text = text;
             this.answers = answers;
         }
+        public string getFullString()
+        {
+            string fullString = string.Empty;
+            foreach (string answer in answers)
+            {
+                int index = this.answers.IndexOf(answer) + 1;
+                fullString += index.ToString() + ": " + answer + "\n";
+            }
+            return text + "\n" + fullString;
+        }
 
     }
 }
