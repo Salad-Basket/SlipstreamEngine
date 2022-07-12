@@ -52,7 +52,6 @@
             this.Controls.Add(this.console);
             this.Name = "Window";
             this.Text = "Window";
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Window_KeyPress);
             this.ResumeLayout(false);
 
         }

@@ -2,9 +2,9 @@
 public class Prompt
 {
     // The actual question prompted to youu
-    public string text { get { return text; } set { text = value; } }
+    public string text { get; private set; }
     // The list of possible answers
-    public List<string> answers { get { return answers; } set { answers = value; } }
+    public List<string> answers { get; private set; }
 
     public Prompt(string text, List<string> answers)
     {

@@ -17,8 +17,8 @@ public class MainMenu
     {
         string fullMenu = string.Empty;
         string options;
-        if (optionsMenu) options = "1.) Play\n2.) Options\n3.) Quit";
-        else options = "1.) Play\n2.) Quit";
+        if (optionsMenu) options = "1.) Play\n2.) Options\nEsc.) Quit";
+        else options = "1.) Play\nEsc.) Quit";
         fullMenu += this.gameName;
         fullMenu += "\n" + options;
         return fullMenu;
