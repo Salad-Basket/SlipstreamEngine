@@ -32,8 +32,18 @@ public partial class Window : Form
     // Called to make sure the text box fills the window at all times
     private void resize(object sender, EventArgs e) => this.console.Size = this.Size;
 
-    public RichTextBox getConsole()
+    public void changeString(string str)
     {
-        return this.console;
+        Clear();
+        WriteLine(str);
+    }
+
+    public RichTextBox getConsole() => this.console;
+
+    public void fontSize(float size)
+    {
+        this.console.SelectAll();
+        this.console.SelectionFont = new Font(this.console.SelectionFont.FontFamily, size);
+        this.console.DeselectAll();
     }
 }
