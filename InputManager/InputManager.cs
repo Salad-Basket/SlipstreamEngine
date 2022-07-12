@@ -7,27 +7,44 @@ using System.Threading.Tasks;
 
 namespace SlipstreamEngine.InputManager
 {
-    public class InputManager
+    public sealed class InputManager
     {
         Window window;
-        Action action;
+        List<Action> actions = new List<Action>();
         public Keys key { get; private set; }
 
-        public InputManager(Window window)
+        private static InputManager instance = null;
+        public static InputManager GetInstance
         {
-            this.window = window;
+            get
+            {
+                if (instance == null)
+                    instance = new InputManager();
+                return instance;
+            }
         }
 
-        public bool setAction(Action action)
+        private InputManager()
         {
-            this.action = action;
+        }
+
+        public bool setWindow(Window window)
+        {
+            this.window = window;
+            this.window.getConsole().KeyDown += KeyDown;
+            return true;
+        }
+
+        public bool addAction(Action action)
+        {
+            this.actions.Add(action);
             return true;
         }
 
         public void KeyDown(object sender, KeyEventArgs e)
         {
             this.key = e.KeyCode;
-            this.action.Invoke();
+            foreach (Action action in actions) action.Invoke();
         }
     
         public int checkKey(Keys key)
