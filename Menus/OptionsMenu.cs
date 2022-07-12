@@ -3,11 +3,16 @@
 namespace SlipstreamEngine.Menus;
 public class OptionsMenu
 {
-    Window window;
-    Prompt prompt = new Prompt("Options Menu:", new List<string>() { "Font Size" });
-    public OptionsMenu(Window window)
+    public Window window { get; private set; }
+    public MainMenu menu { get; private set; }
+    public Action playAction { get; private set; }
+    public Prompt prompt { get; private set; } = new Prompt("Options Menu:", new List<string>() { "Font Size" });
+    
+    public OptionsMenu(Window window, MainMenu menu, Action playAction)
     {
         this.window = window;
+        this.menu = menu;
+        this.playAction = playAction;
     }
 
     public string getMenu()
@@ -23,8 +28,14 @@ public class OptionsMenu
         {
             case 1:
                 {
-                    im.addAction(fontControl());
+                    im.switchAction(optionIndex, fontControl());
+                    break;
+                }
+            case 2:
+            case -2:
+                {
                     im.removeAction(optionIndex);
+                    this.menu.displayMenu(this.window, this.playAction);
                     break;
                 }
         }
@@ -44,6 +55,11 @@ public class OptionsMenu
             case 11:
                 {
                     this.window.fontSize(this.window.getConsole().Font.Size - 1f);
+                    break;
+                }
+            case -2:
+                {
+                    im.switchAction(fontIndex, optionInput());
                     break;
                 }
             default: break;

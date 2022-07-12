@@ -43,12 +43,20 @@ namespace SlipstreamEngine.InputManager
 
         public void removeAction(int index) => this.actions.RemoveAt(index);
 
-        public void KeyDown(object sender, KeyEventArgs e)
+        private void KeyDown(object sender, KeyEventArgs e)
         {
             this.key = e.KeyCode;
             if (actions != null) foreach (Action action in actions.ToList()) action.Invoke();
         }
-    
+        
+        public bool switchAction(int index, Action action)
+        {
+            if (actions == null) return false;
+            removeAction(index);
+            addAction(action);
+            return true;
+        }
+
         public int checkKey(Keys key)
         {
             string keyStr = key.ToString();

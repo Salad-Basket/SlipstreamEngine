@@ -42,8 +42,6 @@ public partial class Window : Form
 
     public void fontSize(float size)
     {
-        this.console.SelectAll();
-        this.console.SelectionFont = new Font(this.console.SelectionFont.FontFamily, size);
-        this.console.DeselectAll();
+        this.console.Font = new Font("Consolas", size);
     }
 }

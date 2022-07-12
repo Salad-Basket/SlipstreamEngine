@@ -7,6 +7,7 @@ public class MainMenu
     public string gameName { get; private set; }
     // Is the menu centered
     public bool centered { get; private set; }
+    public Action playAction { get; private set; }
     private int menuIndex;
     private SlipstreamEngine.InputManager.InputManager im = SlipstreamEngine.InputManager.InputManager.GetInstance;
 
@@ -29,6 +30,7 @@ public class MainMenu
 
         this.im.addAction(menuInput(window, playAction));
         this.menuIndex = this.im.actions.Count - 1;
+        window.Clear();
         window.Write(fullMenu);
         if (this.centered) window.center();
     }
@@ -40,12 +42,12 @@ public class MainMenu
         if (keyCode == 1) playAction.Invoke();
         if (keyCode == 2 && optionsMenu)
         {
-            OptionsMenu options = new OptionsMenu(window);
+            OptionsMenu options = new OptionsMenu(window, this, playAction);
             window.changeString(options.getMenu());
-            im.removeAction(menuIndex);
-            im.addAction(options.optionInput());
+            im.switchAction(menuIndex, options.optionInput());
         }
         else if (keyCode == 2 && !optionsMenu) Application.Exit();
+        else if (keyCode == 3 && optionsMenu) Application.Exit();
         if (keyCode == -2) Application.Exit();
     };
 }
