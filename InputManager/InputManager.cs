@@ -13,7 +13,7 @@ namespace SlipstreamEngine.InputManager
         public List<Action> actions { get; private set; } = new List<Action>();
         public Keys key { get; private set; }
 
-        private static InputManager instance = null;
+        private static InputManager? instance = null;
         public static InputManager GetInstance
         {
             get
@@ -42,12 +42,6 @@ namespace SlipstreamEngine.InputManager
         }
 
         public void removeAction(int index) => this.actions.RemoveAt(index);
-
-        private void KeyDown(object sender, KeyEventArgs e)
-        {
-            this.key = e.KeyCode;
-            if (actions != null) foreach (Action action in actions.ToList()) action.Invoke();
-        }
         
         public bool switchAction(int index, Action action)
         {
@@ -87,6 +81,12 @@ namespace SlipstreamEngine.InputManager
                 case "Down": return 11;
                 default: return -1;
             }
+        }
+
+        private void KeyDown(object sender, KeyEventArgs e)
+        {
+            this.key = e.KeyCode;
+            if (actions != null) foreach (Action action in actions.ToList()) action.Invoke();
         }
     }
 }

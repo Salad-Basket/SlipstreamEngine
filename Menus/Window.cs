@@ -19,7 +19,8 @@ public partial class Window : Form
         Write($"{str}\n");
     }
     #endregion
-        
+    
+    // Clears the console
     public void Clear() => this.console.Clear();
     public void center()
     {
@@ -29,19 +30,19 @@ public partial class Window : Form
         this.console.DeselectAll();
     }
 
-    // Called to make sure the text box fills the window at all times
-    private void resize(object sender, EventArgs e) => this.console.Size = this.Size;
-
+    // Clears the current 
     public void changeString(string str)
     {
         Clear();
         WriteLine(str);
     }
 
+    // Returns the console
     public RichTextBox getConsole() => this.console;
 
-    public void fontSize(float size)
-    {
-        this.console.Font = new Font("Consolas", size);
-    }
+    // Change the font size of the window
+    public void fontSize(float size) => this.console.Font = new Font("Consolas", size);
+
+    // Called to make sure the text box fills the window at all times
+    private void resize(object sender, EventArgs e) => this.console.Size = this.Size;
 }

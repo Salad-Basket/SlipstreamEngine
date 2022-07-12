@@ -1,10 +1,10 @@
 ﻿namespace SlipstreamEngine.Menus;
 public class MainMenu
 {
-    // Should an options menu be avaliable
-    public bool optionsMenu { get; private set; }
     // Well... its the name of the game
     public string gameName { get; private set; }
+    // Should an options menu be avaliable
+    public bool optionsMenu { get; private set; }
     // Is the menu centered
     public bool centered { get; private set; }
     public Action playAction { get; private set; }

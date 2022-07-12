@@ -15,10 +15,8 @@ public class OptionsMenu
         this.playAction = playAction;
     }
 
-    public string getMenu()
-    {
-        return prompt.getFullString();
-    }
+    // Returns the full string for the options menu
+    public string getMenu() => prompt.getFullString();
 
     public Action optionInput() => () =>
     {
@@ -35,7 +33,7 @@ public class OptionsMenu
             case -2:
                 {
                     im.removeAction(optionIndex);
-                    this.menu.displayMenu(this.window, this.playAction);
+                    this.menu.displayMenu(this.window, this.);
                     break;
                 }
         }
