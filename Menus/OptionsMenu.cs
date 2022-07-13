@@ -16,7 +16,7 @@ public class OptionsMenu
     }
 
     // Returns the full string for the options menu
-    public string getMenu() => prompt.getFullString();
+    public string getMenu() => prompt.getFullString() + "Esc.) Quit";
 
     public Action optionInput() => () =>
     {
@@ -27,7 +27,7 @@ public class OptionsMenu
             case 1:
                 {
                     im.switchAction(optionIndex, fontControl());
-                    this.window.changeString("Font Size: " + this.window.getConsole().Font.Size + "\n Esc: Exit");
+                    this.window.changeString("Font Size: " + this.window.getConsole().Font.Size + "\nEsc: Exit");
                     break;
                 }
             case 2:
