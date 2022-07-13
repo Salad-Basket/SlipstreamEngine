@@ -24,9 +24,7 @@ namespace SlipstreamEngine.InputManager
             }
         }
 
-        private InputManager()
-        {
-        }
+        private InputManager() { }
 
         public bool setWindow(Window window)
         {
@@ -35,11 +33,7 @@ namespace SlipstreamEngine.InputManager
             return true;
         }
 
-        public bool addAction(Action action)
-        {
-            this.actions.Add(action);
-            return true;
-        }
+        public void addAction(Action action) => this.actions.Add(action);
 
         public void removeAction(int index) => this.actions.RemoveAt(index);
         
