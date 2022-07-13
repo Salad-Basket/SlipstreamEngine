@@ -16,6 +16,7 @@ public class MainMenu
         this.optionsMenu = optionsMenu;
         this.gameName = gameName;
         this.centered = centered;
+        this.playAction = () => { };
     }
 
     // Displays the menu to the window and waits for a response

@@ -9,7 +9,7 @@ namespace SlipstreamEngine.InputManager
 {
     public sealed class InputManager
     {
-        Window window;
+        public Window window { get; private set; }
         public List<Action> actions { get; private set; } = new List<Action>();
         public Keys key { get; private set; }
 
@@ -24,7 +24,7 @@ namespace SlipstreamEngine.InputManager
             }
         }
 
-        private InputManager() { }
+        private InputManager() { this.window = new Window(); }
 
         public bool setWindow(Window window)
         {
@@ -36,7 +36,7 @@ namespace SlipstreamEngine.InputManager
         public void addAction(Action action) => this.actions.Add(action);
 
         public void removeAction(int index) => this.actions.RemoveAt(index);
-        
+
         public bool switchAction(int index, Action action)
         {
             if (actions == null) return false;
@@ -77,7 +77,7 @@ namespace SlipstreamEngine.InputManager
             }
         }
 
-        private void KeyDown(object sender, KeyEventArgs e)
+        private void KeyDown(object? sender, KeyEventArgs e)
         {
             this.key = e.KeyCode;
             if (actions != null) foreach (Action action in actions.ToList()) action.Invoke();

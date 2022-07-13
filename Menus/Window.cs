@@ -19,7 +19,7 @@ public partial class Window : Form
         Write($"{str}\n");
     }
     #endregion
-    
+
     // Clears the console
     public void Clear() => this.console.Clear();
     public void center()
@@ -44,5 +44,5 @@ public partial class Window : Form
     public void fontSize(float size) => this.console.Font = new Font("Consolas", size);
 
     // Called to make sure the text box fills the window at all times
-    private void resize(object sender, EventArgs e) => this.console.Size = this.Size;
+    private void resize(object? sender, EventArgs e) => this.console.Size = this.Size;
 }
