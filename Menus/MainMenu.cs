@@ -1,16 +1,19 @@
 ﻿namespace SlipstreamEngine.Menus;
+/// <include file='Menus.xml' path='Menus/MainMenu/Methods/MainMenu[@name="MainMenu"]/*' />
 public class MainMenu
 {
-    // Well... its the name of the game
+    /// <include file="Menus.xml" path="Menus/MainMenu/Variables/MainMenu[@name='gameName']/*" />
     public string gameName { get; private set; }
-    // Should an options menu be avaliable
+    /// <include file="Menus.xml" path="Menus/MainMenu/Variables/MainMenu[@name='optionsMenu']/*" />
     public bool optionsMenu { get; private set; }
-    // Is the menu centered
+    /// <include file="Menus.xml" path="Menus/MainMenu/Variables/MainMenu[@name='centered']/*" />
     public bool centered { get; private set; }
+    /// <include file="Menus.xml" path="Menus/MainMenu/Variables/MainMenu[@name='playAction']/*" />
     public Action playAction { get; private set; }
     private int menuIndex;
     private SlipstreamEngine.InputManager.InputManager im = SlipstreamEngine.InputManager.InputManager.GetInstance;
 
+    /// <include file='Menus.xml' path='Menus/MainMenu/Methods/MainMenu[@name="MainMenu"]/*' />
     public MainMenu(string gameName, bool centered = true, bool optionsMenu = false)
     {
         this.optionsMenu = optionsMenu;
@@ -19,8 +22,8 @@ public class MainMenu
         this.playAction = () => { };
     }
 
-    // Displays the menu to the window and waits for a response
-    public void displayMenu(Window window, Action playAction)
+    /// <include file='Menus.xml' path='Menus/MainMenu/Methods/MainMenu[@name="DisplayMenu"]/*' />
+    public void DisplayMenu(Window window, Action playAction)
     {
         string fullMenu = string.Empty;
         string options;
@@ -29,7 +32,7 @@ public class MainMenu
         fullMenu += this.gameName;
         fullMenu += "\n" + options;
 
-        this.im.addAction(menuInput(window, playAction));
+        this.im.AddAction(menuInput(window, playAction));
         this.menuIndex = this.im.actions.Count - 1;
         window.Clear();
         window.Write(fullMenu);
@@ -38,14 +41,14 @@ public class MainMenu
 
     private Action menuInput(Window window, Action playAction) => () =>
     {
-        int keyCode = this.im.checkKey(this.im.key);
+        int keyCode = this.im.CheckKey(this.im.Key);
 
         if (keyCode == 1) playAction.Invoke();
         if (keyCode == 2 && optionsMenu)
         {
             OptionsMenu options = new OptionsMenu(window, this, playAction);
             window.changeString(options.getMenu());
-            im.switchAction(menuIndex, options.optionInput());
+            im.SwitchAction(menuIndex, options.optionInput());
         }
         else if (keyCode == 2 && !optionsMenu) Application.Exit();
         else if (keyCode == 3 && optionsMenu) Application.Exit();

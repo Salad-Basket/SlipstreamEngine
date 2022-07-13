@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Menus>
+  <MainMenu>
+    <Methods>  
+      <MainMenu name="MainMenu">
+        <summary> A general purpose main menu </summary>
+      </MainMenu>
+      <MainMenu name="DisplayMenu">
+          <summary> Displays the menu to the window and waits for a response </summary>
+      </MainMenu>
+    </Methods>
+  
+    <Variables>
+      <MainMenu name="gameName">
+        <summary> Well... its the name of the game </summary>
+      </MainMenu>
+      <MainMenu name="optionsMenu">
+        <summary> Is there an options menu </summary>
+      </MainMenu>
+      <MainMenu name="centered">
+        <summary> Is the menu centered </summary>
+      </MainMenu>
+      <MainMenu name="playAction">
+        <summary> The action thats invoked on when played </summary>
+      </MainMenu>
+    </Variables>
+  </MainMenu>
+</Menus>
