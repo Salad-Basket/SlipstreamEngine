@@ -4,27 +4,28 @@ public partial class Window : Form
     public Window()
     {
         InitializeComponent();
-        this.Resize += resize;
+        this.Resize += _Resize;
     }
 
     #region Writing
-    /// <summary> Writes to the console </summary>
+    /// <include file='Window.xml' path='Window/Methods/Write' />
     public void Write(string str)
     {
         this.console.AppendText(str);
         this.Refresh();
     }
-    /// <summary> Writes to the console and appends a line break character </summary>
+    /// <include file='Window.xml' path='Window/Methods/WriteLine' />
     public void WriteLine(string str)
     {
         Write($"{str}\n");
     }
     #endregion
 
-    /// <summary> Clears the console </summary>
+    /// <include file='Window.xml' path='Window/Methods/Clear' />
     public void Clear() => this.console.Clear();
-    /// <summary> Centers all text on screen </summary>
-    public void center()
+
+    /// <include file='Window.xml' path='Window/Methods/Center' />
+    public void Center()
     {
         // Selects all the text and aligns it to the center
         this.console.SelectAll();
@@ -32,20 +33,19 @@ public partial class Window : Form
         this.console.DeselectAll();
     }
 
-    /// <summary> Replaces the string on screen with the string given </summary>
-    public void changeString(string str)
+    /// <include file='Window.xml' path='Window/Methods/ChangeString' />
+    public void ChangeString(string str)
     {
         Clear();
         WriteLine(str);
     }
 
-    /// <summary> Returns the console object </summary>
-    /// <returns> RichTextBox </returns>
-    public RichTextBox getConsole() => this.console;
+    /// <include file='Window.xml' path='Window/Methods/GetConsole' />
+    public RichTextBox GetConsole() => this.console;
 
-    /// <summary> Change the font size of the window </summary>
-    public void fontSize(float size) => this.console.Font = new Font("Consolas", size);
+    /// <include file='Window.xml' path='Window/Methods/FontSize' />
+    public void FontSize(float size) => this.console.Font = new Font("Consolas", size);
 
     // Called to make sure the text box fills the window at all times
-    private void resize(object? sender, EventArgs e) => this.console.Size = this.Size;
+    private void _Resize(object? sender, EventArgs e) => this.console.Size = this.Size;
 }

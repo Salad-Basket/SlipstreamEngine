@@ -26,7 +26,7 @@ public class OptionsMenu
             case 1:
                 {
                     im.SwitchAction(optionIndex, fontControl());
-                    this.window.changeString("Font Size: " + this.window.getConsole().Font.Size + "\nEsc: Exit");
+                    this.window.changeString("Font Size: " + this.window.GetConsole().Font.Size + "\nEsc: Exit");
                     break;
                 }
             case 2:
@@ -47,14 +47,14 @@ public class OptionsMenu
         {
             case 10:
                 {
-                    this.window.fontSize(this.window.getConsole().Font.Size + 1f);
-                    this.window.changeString("Font Size: " + this.window.getConsole().Font.Size + "\nEsc: Exit");
+                    this.window.fontSize(this.window.GetConsole().Font.Size + 1f);
+                    this.window.changeString("Font Size: " + this.window.GetConsole().Font.Size + "\nEsc: Exit");
                     break;
                 }
             case 11:
                 {
-                    this.window.fontSize(this.window.getConsole().Font.Size - 1f);
-                    this.window.changeString("Font Size: " + this.window.getConsole().Font.Size + "\nEsc: Exit");
+                    this.window.fontSize(this.window.GetConsole().Font.Size - 1f);
+                    this.window.changeString("Font Size: " + this.window.GetConsole().Font.Size + "\nEsc: Exit");
                     break;
                 }
             case -2:

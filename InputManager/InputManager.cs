@@ -31,7 +31,7 @@ public sealed class InputManager
     public void SetWindow(Window window)
     {
         this.window = window;
-        this.window.getConsole().KeyDown += KeyDown;
+        this.window.GetConsole().KeyDown += KeyDown;
     }
 
     /// <include file='InputManager.xml' path='InputManager/Methods/AddAction'/>
