@@ -1,7 +1,7 @@
 ﻿namespace SlipstreamEngine.Prompts;
 public class Prompt
 {
-    // The actual question prompted to youu
+    // The actual question prompted to you
     public string text { get; private set; }
     // The list of possible answers
     public List<string> answers { get; private set; }
@@ -20,7 +20,7 @@ public class Prompt
             int index = this.answers.IndexOf(answer) + 1;
             answersFullString += index.ToString() + ": " + answer + "\n";
         }
-        // Returns one long string with a line break after the question and each answer
+        // Returns the full string ready to be written to the console
         return text + "\n" + answersFullString;
     }
 
