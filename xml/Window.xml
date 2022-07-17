@@ -1,0 +1,26 @@
+﻿<Window>
+  <Methods>
+    <Clear>
+      <summary> Clears the console </summary>
+    </Clear>
+    <Center>
+      <summary> Centers all text on screen </summary>
+    </Center>
+    <Write>
+      <summary> Writes to the console </summary>
+    </Write>
+    <WriteLine>
+      <summary> Writes to the console and appends a line break character </summary>
+    </WriteLine>
+    <ChangeString>
+      <summary> Replaces the string on screen with the string given </summary>
+    </ChangeString>
+    <GetConsole>
+      <summary> Returns the console object </summary>
+      <returns> RichTextBox </returns>
+    </GetConsole>
+    <FontSize>
+      <summary> Change the font size of the window </summary>
+    </FontSize>
+  </Methods>
+</Window>
