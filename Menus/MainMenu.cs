@@ -1,19 +1,19 @@
 ﻿namespace SlipstreamEngine.Menus;
-/// <include file='Menus.xml' path='Menus/MainMenu/Methods/MainMenu[@name="MainMenu"]/*' />
+/// <include file='./xml/Menus.xml' path='Menus/MainMenu/Methods/MainMenu[@name="MainMenu"]/*' />
 public class MainMenu
 {
-    /// <include file="Menus.xml" path="Menus/MainMenu/Variables/MainMenu[@name='gameName']/*" />
+    /// <include file='./xml/Menus.xml' path="Menus/MainMenu/Variables/MainMenu[@name='gameName']/*" />
     public string gameName { get; private set; }
-    /// <include file="Menus.xml" path="Menus/MainMenu/Variables/MainMenu[@name='optionsMenu']/*" />
+    /// <include file='./xml/Menus.xml' path="Menus/MainMenu/Variables/MainMenu[@name='optionsMenu']/*" />
     public bool optionsMenu { get; private set; }
-    /// <include file="Menus.xml" path="Menus/MainMenu/Variables/MainMenu[@name='centered']/*" />
+    /// <include file='./xml/Menus.xml' path="Menus/MainMenu/Variables/MainMenu[@name='centered']/*" />
     public bool centered { get; private set; }
-    /// <include file="Menus.xml" path="Menus/MainMenu/Variables/MainMenu[@name='playAction']/*" />
+    /// <include file='./xml/Menus.xml' path="Menus/MainMenu/Variables/MainMenu[@name='playAction']/*" />
     public Action playAction { get; private set; }
     private int menuIndex;
     private SlipstreamEngine.InputManager.InputManager im = SlipstreamEngine.InputManager.InputManager.GetInstance;
 
-    /// <include file='Menus.xml' path='Menus/MainMenu/Methods/MainMenu[@name="MainMenu"]/*' />
+    /// <include file='./xml/Menus.xml' path='Menus/MainMenu/Methods/MainMenu[@name="MainMenu"]/*' />
     public MainMenu(string gameName, bool centered = true, bool optionsMenu = false)
     {
         this.optionsMenu = optionsMenu;
@@ -22,7 +22,7 @@ public class MainMenu
         this.playAction = () => { };
     }
 
-    /// <include file='Menus.xml' path='Menus/MainMenu/Methods/MainMenu[@name="DisplayMenu"]/*' />
+    /// <include file='./xml/Menus.xml' path='Menus/MainMenu/Methods/MainMenu[@name="DisplayMenu"]/*' />
     public void DisplayMenu(Window window, Action playAction)
     {
         string fullMenu = string.Empty;

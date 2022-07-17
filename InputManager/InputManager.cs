@@ -3,18 +3,18 @@
 namespace SlipstreamEngine.InputManager;
 public sealed class InputManager
 {
-    /// <include file='InputManager.xml' path='InputManager/Variables/window'/>
+    /// <include file='./xml/InputManager.xml' path='InputManager/Variables/window'/>
     public Window window { get; private set; }
 
-    /// <include file='InputManager.xml' path='InputManager/Variables/actions'/>
+    /// <include file='./xml/InputManager.xml' path='InputManager/Variables/actions'/>
     public List<Action> actions { get; private set; } = new List<Action>();
 
-    /// <include file='InputManager.xml' path='InputManager/Variables/key'/>
+    /// <include file='./xml/InputManager.xml' path='InputManager/Variables/key'/>
     public Keys Key { get; private set; }
 
     private static InputManager? instance = null;
 
-    /// <include file='InputManager.xml' path='InputManager/Variables/GetInstance'/>
+    /// <include file='./xml/InputManager.xml' path='InputManager/Variables/GetInstance'/>
     public static InputManager GetInstance
     {
         get
@@ -27,27 +27,27 @@ public sealed class InputManager
 
     private InputManager() { this.window = new Window(); }
 
-    /// <include file='InputManager.xml' path='InputManager/Methods/SetWindow'/>
+    /// <include file='./xml/InputManager.xml' path='InputManager/Methods/SetWindow'/>
     public void SetWindow(Window window)
     {
         this.window = window;
         this.window.GetConsole().KeyDown += KeyDown;
     }
 
-    /// <include file='InputManager.xml' path='InputManager/Methods/AddAction'/>
+    /// <include file='./xml/InputManager.xml' path='InputManager/Methods/AddAction'/>
     public void AddAction(Action action) => this.actions.Add(action);
 
-    /// <include file='InputManager.xml' path='InputManager/Methods/RemoveAction'/>
+    /// <include file='./xml/InputManager.xml' path='InputManager/Methods/RemoveAction'/>
     public void RemoveAction(int index) => this.actions.RemoveAt(index);
 
-    /// <include file='InputManager.xml' path='InputManager/Methods/SwitchAction'/>
+    /// <include file='./xml/InputManager.xml' path='InputManager/Methods/SwitchAction'/>
     public void SwitchAction(int index, Action action)
     {
         RemoveAction(index);
         AddAction(action);
     }
 
-    /// <include file='InputManager.xml' path='InputManager/Methods/CheckKey'/>
+    /// <include file='./xml/InputManager.xml' path='InputManager/Methods/CheckKey'/>
     public int CheckKey(Keys key)
     {
         string keyStr = key.ToString();

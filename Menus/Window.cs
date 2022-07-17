@@ -8,23 +8,23 @@ public partial class Window : Form
     }
 
     #region Writing
-    /// <include file='Window.xml' path='Window/Methods/Write' />
+    /// <include file='./xml/Window.xml' path='Window/Methods/Write' />
     public void Write(string str)
     {
         this.console.AppendText(str);
         this.Refresh();
     }
-    /// <include file='Window.xml' path='Window/Methods/WriteLine' />
+    /// <include file='./xml/Window.xml' path='Window/Methods/WriteLine' />
     public void WriteLine(string str)
     {
         Write($"{str}\n");
     }
     #endregion
 
-    /// <include file='Window.xml' path='Window/Methods/Clear' />
+    /// <include file='./xml/Window.xml' path='Window/Methods/Clear' />
     public void Clear() => this.console.Clear();
 
-    /// <include file='Window.xml' path='Window/Methods/Center' />
+    /// <include file='./xml/Window.xml' path='Window/Methods/Center' />
     public void Center()
     {
         // Selects all the text and aligns it to the center
@@ -33,17 +33,17 @@ public partial class Window : Form
         this.console.DeselectAll();
     }
 
-    /// <include file='Window.xml' path='Window/Methods/ChangeString' />
+    /// <include file='./xml/Window.xml' path='Window/Methods/ChangeString' />
     public void ChangeString(string str)
     {
         Clear();
         WriteLine(str);
     }
 
-    /// <include file='Window.xml' path='Window/Methods/GetConsole' />
+    /// <include file='./xml/Window.xml' path='Window/Methods/GetConsole' />
     public RichTextBox GetConsole() => this.console;
 
-    /// <include file='Window.xml' path='Window/Methods/FontSize' />
+    /// <include file='./xml/Window.xml' path='Window/Methods/FontSize' />
     public void FontSize(float size) => this.console.Font = new Font("Consolas", size);
 
     // Called to make sure the text box fills the window at all times
