@@ -6,7 +6,7 @@ public class OptionsMenu
     public Window window { get; private set; }
     public MainMenu menu { get; private set; }
     public Action playAction { get; private set; }
-    public Prompt prompt { get; private set; } = new Prompt("Options Menu:", new List<string>() { "Font Size" });
+    public Prompt prompt { get; private set; } = new Prompt(new List<string>() { "Font Size" }, "Options Menu:");
 
     public OptionsMenu(Window window, MainMenu menu, Action playAction)
     {
@@ -15,7 +15,7 @@ public class OptionsMenu
         this.playAction = playAction;
     }
 
-    public string getMenu() => prompt.getFullString() + "Esc.) Quit";
+    public string getMenu() => prompt.GetFullString() + "Esc.) Quit";
 
     public Action optionInput() => () =>
     {
@@ -26,7 +26,7 @@ public class OptionsMenu
             case 1:
                 {
                     im.SwitchAction(optionIndex, fontControl());
-                    this.window.changeString("Font Size: " + this.window.GetConsole().Font.Size + "\nEsc: Exit");
+                    this.window.ChangeString("Font Size: " + this.window.GetConsole().Font.Size + "\nEsc: Exit");
                     break;
                 }
             case 2:
@@ -47,20 +47,20 @@ public class OptionsMenu
         {
             case 10:
                 {
-                    this.window.fontSize(this.window.GetConsole().Font.Size + 1f);
-                    this.window.changeString("Font Size: " + this.window.GetConsole().Font.Size + "\nEsc: Exit");
+                    this.window.FontSize(this.window.GetConsole().Font.Size + 1f);
+                    this.window.ChangeString("Font Size: " + this.window.GetConsole().Font.Size + "\nEsc: Exit");
                     break;
                 }
             case 11:
                 {
-                    this.window.fontSize(this.window.GetConsole().Font.Size - 1f);
-                    this.window.changeString("Font Size: " + this.window.GetConsole().Font.Size + "\nEsc: Exit");
+                    this.window.FontSize(this.window.GetConsole().Font.Size - 1f);
+                    this.window.ChangeString("Font Size: " + this.window.GetConsole().Font.Size + "\nEsc: Exit");
                     break;
                 }
             case -2:
                 {
                     im.SwitchAction(fontIndex, optionInput());
-                    this.window.changeString(getMenu());
+                    this.window.ChangeString(getMenu());
                     break;
                 }
             default: break;

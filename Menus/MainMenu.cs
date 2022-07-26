@@ -36,7 +36,7 @@ public class MainMenu
         this.menuIndex = this.im.actions.Count - 1;
         window.Clear();
         window.Write(fullMenu);
-        if (this.centered) window.center();
+        if (this.centered) window.Center();
     }
 
     private Action menuInput(Window window, Action playAction) => () =>
@@ -47,7 +47,7 @@ public class MainMenu
         if (keyCode == 2 && optionsMenu)
         {
             OptionsMenu options = new OptionsMenu(window, this, playAction);
-            window.changeString(options.getMenu());
+            window.ChangeString(options.getMenu());
             im.SwitchAction(menuIndex, options.optionInput());
         }
         else if (keyCode == 2 && !optionsMenu) Application.Exit();
