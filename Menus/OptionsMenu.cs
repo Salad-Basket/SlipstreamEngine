@@ -4,9 +4,15 @@ namespace SlipstreamEngine.Menus;
 public class OptionsMenu
 {
     public Window window { get; private set; }
-    public MainMenu menu { get; private set; }
+    public MainMenu? menu { get; private set; } = null;
     public Action playAction { get; private set; }
     public Prompt prompt { get; private set; } = new Prompt(new List<string>() { "Font Size" }, "Options Menu:");
+    private string previousString;
+
+    public OptionsMenu(Window window)
+    {
+        this.window = window;
+    }
 
     public OptionsMenu(Window window, MainMenu menu, Action playAction)
     {
@@ -15,9 +21,15 @@ public class OptionsMenu
         this.playAction = playAction;
     }
 
-    public string getMenu() => prompt.GetFullString() + "Esc.) Quit";
+    public void DisplayMenu()
+    {
+        this.previousString = this.window.GetConsole().Text;
+        this.window.ChangeString(GetMenu());
+    }
 
-    public Action optionInput() => () =>
+    public string GetMenu() => prompt.GetFullString() + "Esc.) Quit";
+
+    public Action OptionInput() => () =>
     {
         InputManager.InputManager im = InputManager.InputManager.GetInstance;
         int optionIndex = im.actions.Count - 1;
@@ -25,7 +37,7 @@ public class OptionsMenu
         {
             case 1:
                 {
-                    im.SwitchAction(optionIndex, fontControl());
+                    im.SwitchAction(optionIndex, FontControl());
                     this.window.ChangeString("Font Size: " + this.window.GetConsole().Font.Size + "\nEsc: Exit");
                     break;
                 }
@@ -33,13 +45,14 @@ public class OptionsMenu
             case -2:
                 {
                     im.RemoveAction(optionIndex);
-                    this.menu.DisplayMenu(this.window, this.playAction);
+                    if (menu != null) this.menu.DisplayMenu(this.window, this.playAction);
+                    else this.window.ChangeString(previousString);
                     break;
                 }
         }
     };
 
-    private Action fontControl() => () =>
+    private Action FontControl() => () =>
     {
         InputManager.InputManager im = InputManager.InputManager.GetInstance;
         int fontIndex = im.actions.Count - 1;
@@ -59,8 +72,8 @@ public class OptionsMenu
                 }
             case -2:
                 {
-                    im.SwitchAction(fontIndex, optionInput());
-                    this.window.ChangeString(getMenu());
+                    im.SwitchAction(fontIndex, OptionInput());
+                    this.window.ChangeString(GetMenu());
                     break;
                 }
             default: break;

@@ -47,6 +47,9 @@ public sealed class InputManager
         AddAction(action);
     }
 
+    /// <include file='./xml/InputManager.xml' path='InputManager/Methods/ClearActions'/>
+    public void ClearActions() => this.actions.Clear();
+
     /// <include file='./xml/InputManager.xml' path='InputManager/Methods/CheckKey'/>
     public int CheckKey(Keys key)
     {

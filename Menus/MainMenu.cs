@@ -47,8 +47,8 @@ public class MainMenu
         if (keyCode == 2 && optionsMenu)
         {
             OptionsMenu options = new OptionsMenu(window, this, playAction);
-            window.ChangeString(options.getMenu());
-            im.SwitchAction(menuIndex, options.optionInput());
+            window.ChangeString(options.GetMenu());
+            im.SwitchAction(menuIndex, options.OptionInput());
         }
         else if (keyCode == 2 && !optionsMenu) Application.Exit();
         else if (keyCode == 3 && optionsMenu) Application.Exit();

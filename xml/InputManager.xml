@@ -20,6 +20,9 @@
       <param name="index">The index at which to remove the action from the list</param>
       <param name="action">The action to be added</param>
     </SwitchAction>
+    <ClearActions>
+      <summary> Clears the actions ran when a key is pressed </summary>
+    </ClearActions>
     <CheckKeys>
       <summary> Changes a <paramref name="key" /> into an integer </summary>
       <param name="key">The key to change into an integer</param>

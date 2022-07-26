@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<PauseMenu>
+  <Methods>
+    <PauseMenu>
+      <summary> A class to make a pause menu </summary>
+    </PauseMenu>
+    <DisplayMenu>
+      <summary> Displays and manages input for the pause menu </summary>
+    </DisplayMenu>
+  </Methods>
+</PauseMenu>
