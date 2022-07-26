@@ -51,28 +51,10 @@ public sealed class InputManager
     public int CheckKey(Keys key)
     {
         string keyStr = key.ToString();
+        char toParse = keyStr[^1];
+        if (Char.GetNumericValue(toParse) < 10 && Char.GetNumericValue(toParse) >= 0) return Convert.ToInt16(Char.GetNumericValue(toParse));
         switch (keyStr)
         {
-            case "D0":
-            case "NumPad0": return 0;
-            case "D1":
-            case "NumPad1": return 1;
-            case "D2":
-            case "NumPad2": return 2;
-            case "D3":
-            case "NumPad3": return 3;
-            case "D4":
-            case "NumPad4": return 4;
-            case "D5":
-            case "NumPad5": return 5;
-            case "D6":
-            case "NumPad6": return 6;
-            case "D7":
-            case "NumPad7": return 7;
-            case "D8":
-            case "NumPad8": return 8;
-            case "D9":
-            case "NumPad9": return 9;
             case "Escape": return -2;
             case "Up": return 10;
             case "Down": return 11;
