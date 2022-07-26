@@ -10,4 +10,8 @@
     <Version>0.0.5</Version>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="xml\" />
+  </ItemGroup>
+
 </Project>

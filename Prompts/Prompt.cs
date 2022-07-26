@@ -6,12 +6,22 @@ public class Prompt
     // The list of possible answers
     public List<string> answers { get; private set; }
 
-    public Prompt(string text, List<string> answers)
+    public Prompt() 
+    {
+        this.text = "Undefined prompt text";
+        if (this.answers != null) answers.Clear();
+    }
+
+    public Prompt(List<string> answers, string text = "Undefined prompt text")
     {
         this.text = text;
         this.answers = answers;
     }
-    public string getFullString()
+
+    public void AddAnswer(string str) => answers.Add(str);
+    public void SetText(string str) => text = str;
+    
+    public string GetFullString()
     {
         string answersFullString = string.Empty;
         // Adds each possible answer together with the index
