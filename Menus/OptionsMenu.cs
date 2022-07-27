@@ -5,9 +5,11 @@ public class OptionsMenu
 {
     public Window window { get; private set; }
     public MainMenu? menu { get; private set; } = null;
-    public Action playAction { get; private set; }
+    public Action? playAction { get; private set; }
     public Prompt prompt { get; private set; } = new Prompt(new List<string>() { "Font Size" }, "Options Menu:");
-    private string previousString;
+    private InputManager.InputManager im = InputManager.InputManager.GetInstance;
+    private Action? pauseAction;
+    private string? previousString;
 
     public OptionsMenu(Window window)
     {
@@ -21,9 +23,11 @@ public class OptionsMenu
         this.playAction = playAction;
     }
 
-    public void DisplayMenu()
+    public void DisplayMenu(Action? pauseAction = null, int pauseIndex = 0)
     {
         this.previousString = this.window.GetConsole().Text;
+        this.pauseAction = pauseAction;
+        im.RemoveAction(pauseIndex);
         this.window.ChangeString(GetMenu());
     }
 
@@ -46,7 +50,7 @@ public class OptionsMenu
                 {
                     im.RemoveAction(optionIndex);
                     if (menu != null) this.menu.DisplayMenu(this.window, this.playAction);
-                    else this.window.ChangeString(previousString);
+                    else { this.window.ChangeString(previousString); im.AddAction(this.pauseAction); }
                     break;
                 }
         }

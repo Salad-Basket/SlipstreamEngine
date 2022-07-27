@@ -18,13 +18,13 @@ namespace SlipstreamEngine.Menus
         private readonly bool centered;
 
         /// <include file='./xml/PauseMenu.xml' path='PauseMenu/Methods/PauseMenu'/>
-        public PauseMenu(Window window, bool centered = true, bool optionsMenu = false)
+        public PauseMenu(Window window, List<Action> actions, bool centered = true, bool optionsMenu = false)
         {
             this.window = window;
             this.optionsMenu = optionsMenu;
             this.centered = centered;
 
-            actions = im.actions;
+            this.actions = actions;
         }
 
         /// <include file='./xml/PauseMenu.xml' path='PauseMenu/Methods/DisplayMenu'/>
@@ -50,8 +50,11 @@ namespace SlipstreamEngine.Menus
                 switch(im.CheckKey(im.Key))
                 {
                     case (1):
-                        foreach (Action action in actions) im.AddAction(action);
-                        this.window.Write(previousString);
+                    case (-2):
+                        im.RemoveAction(actionIndex);
+                        foreach (Action action in actions.ToList()) im.AddAction(action);
+                        this.window.ChangeString(previousString);
+                        this.window.WriteLine(im.actions.Count.ToString());
                         break;
                     case (2):
                         if(optionsMenu)
@@ -61,9 +64,6 @@ namespace SlipstreamEngine.Menus
                         } else Application.Exit();
                         break;
                     case(3):
-                        Application.Exit();
-                        break;
-                    case (-2):
                         Application.Exit();
                         break;
                 }
